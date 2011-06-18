@@ -18,6 +18,7 @@ The Solution
 ------------
 
 ::
+
     >>> import omnijson as json
     # \o/
 
