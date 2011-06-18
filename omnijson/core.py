@@ -31,6 +31,30 @@ def _import(engine):
         return False
 
 
+def loads(s):
+    """Loads JSON object."""
+
+    try:
+        return _engine[0](s)
+
+    except _engine[2], why:
+        raise JSONError(why)
+
+
+
+def dumps(o):
+    """Dumps JSON object."""
+
+    try:
+        return _engine[1](o)
+    except _engine[2], why:
+        raise JSONError(why)
+
+
+
+class JSONError(ValueError):
+    """JSON Failed."""
+
 
 for k, v in json_map.items():
 
@@ -43,28 +67,3 @@ for k, v in json_map.items():
             _engine[i] = getattr(__engine, _engine[i])
 
         break
-
-
-
-
-def loads(s):
-    """Loads JSON object."""
-    try:
-        return _engine[0](s)
-
-    except  _engine[2], why:
-        raise JSONError(why)
-
-
-
-def dumps(o):
-    """Dumps JSON object."""
-    try:
-        return _engine[1](o)
-    except _engine[2], why:
-        raise JSONError(why)
-
-
-
-class JSONError(ValueError):
-    """JSON Failed."""

@@ -1,3 +1,8 @@
 # -*- coding: utf-8 -*-
+#
+from core import *
+# try:
 
-from .core import *
+# except SyntaxError:
+#     print 'fuck'
+#     eval('from .core import *')
