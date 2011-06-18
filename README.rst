@@ -1,5 +1,5 @@
-JSONs.
-======
+OmniJSON
+========
 
 The Problem
 -----------
@@ -23,7 +23,7 @@ The Solution
 
     # Python 2.5.4 (r254:67916, Jun 24 2010, 21:47:25)
 
-    >>> import jsons
+    >>> import omnijson as json
     # \o/
 
 
