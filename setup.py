@@ -36,7 +36,6 @@ setup(
         'omnijson.packages',
         'omnijson.packages.simplejson'
     ],
-    install_requires=required,
     license='MIT',
     classifiers=(
         'Development Status :: 5 - Production/Stable',
