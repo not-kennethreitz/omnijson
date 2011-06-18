@@ -35,18 +35,25 @@ def loads(s):
     """Loads JSON object."""
 
     try:
-        return _engine[0](s)
+        try:
+            return _engine[0](s, **kwargs)
+        except TypeError:
+            return _engine[0](s)
 
     except _engine[2], why:
         raise JSONError(why)
 
 
 
-def dumps(o):
+def dumps(o, **kwargs):
     """Dumps JSON object."""
 
     try:
-        return _engine[1](o)
+        try:
+            return _engine[1](o, **kwargs)
+        except TypeError:
+            return _engine[1](o)
+
     except _engine[2], why:
         raise JSONError(why)
 
