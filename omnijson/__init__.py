@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 #
 from core import *
-# try:
 
-# except SyntaxError:
-#     print 'fuck'
-#     eval('from .core import *')
+__version__ = '0.1.0'

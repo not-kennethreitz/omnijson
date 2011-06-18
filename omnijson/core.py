@@ -7,15 +7,15 @@ engine = None
 _engine = None
 
 
-json_map = OrderedDict()
+_json_map = OrderedDict()
 
-json_map['ujson'] = ['loads', 'dumps', ValueError]
-json_map['yajl'] = ['loads', 'dumps', (TypeError, ValueError)]
-json_map['jsonlib2'] = ['read', 'write', ValueError]
-json_map['jsonlib'] = ['read', 'write', ValueError]
-json_map['simplejson'] = ['loads', 'dumps', (TypeError, ValueError)]
-json_map['json'] = ['loads', 'dumps', (TypeError, ValueError)]
-json_map['simplejson_from_packages'] = ['loads', 'dumps', ValueError]
+_json_map['ujson'] = ['loads', 'dumps', ValueError]
+_json_map['yajl'] = ['loads', 'dumps', (TypeError, ValueError)]
+_json_map['jsonlib2'] = ['read', 'write', ValueError]
+_json_map['jsonlib'] = ['read', 'write', ValueError]
+_json_map['simplejson'] = ['loads', 'dumps', (TypeError, ValueError)]
+_json_map['json'] = ['loads', 'dumps', (TypeError, ValueError)]
+_json_map['simplejson_from_packages'] = ['loads', 'dumps', ValueError]
 
 
 def _import(engine):
@@ -56,7 +56,7 @@ class JSONError(ValueError):
     """JSON Failed."""
 
 
-for k, v in json_map.items():
+for k, v in _json_map.items():
 
     __engine = _import(k)
 
