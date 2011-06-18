@@ -25,3 +25,12 @@ The Solution
 
     >>> import jsons
     # \o/
+
+
+Features
+--------
+
+- Loads whichever is the fastest JSON module installed
+- Falls back on built in pure-python simplejson, just in case.
+- Proper API (``loads()``, ``dumps()``)
+- Verndorizable
