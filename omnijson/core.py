@@ -60,15 +60,12 @@ def dumps(o, **kwargs):
     """Dumps JSON object."""
 
     try:
-        try:
-            return _engine[1](o, **kwargs)
-        except TypeError:
-            return _engine[1](o)
+        return _engine[1](o)
 
     except:
         ExceptionClass, why = sys.exc_info()[:2]
 
-        if why in _engine[2]:
+        if any([(issubclass(ExceptionClass, e)) for e in _engine[2]]):
             raise JSONError(why)
         else:
             raise why
