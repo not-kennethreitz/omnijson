@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import unittest2 as unittest
+import unittest as unittest
 
 import omnijson as json
 
