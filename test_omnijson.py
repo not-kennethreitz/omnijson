@@ -15,12 +15,12 @@ class OmniSuite(unittest.TestCase):
 
     def test_load_json(self):
         a = json.loads(self._good_json_string)
-        self.assertEquals(a, self._good_json_result)
+        self.assertEqual(a, self._good_json_result)
 
 
     def test_dump_json(self):
         a = json.dumps(self._good_json_result)
-        self.assertEquals(a, self._good_json_string)
+        self.assertEqual(a, self._good_json_string)
 
     def test_load_bad_json(self):
         self.assertRaises(
