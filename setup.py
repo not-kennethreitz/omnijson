@@ -4,6 +4,7 @@
 import os
 import sys
 
+
 from distutils.core import setup
 
 import omnijson
@@ -13,9 +14,10 @@ if sys.argv[-1] == 'publish':
     os.system("python setup.py sdist upload")
     sys.exit()
 
+
 if sys.argv[-1] == 'speedups':
     try:
-        import pip
+        __import__('pip')
     except ImportError:
         print('Pip required.')
         sys.exit(1)
@@ -26,12 +28,13 @@ if sys.argv[-1] == 'speedups':
 setup(
     name='omnijson',
     version=omnijson.__version__,
-    description='Wraps the best JSON installed, falling back on an internal simplejson.',
+    description='''Wraps the best JSON installed, falling back on an
+    internal simplejson.''',
     long_description=open('README.rst').read(),
     author='Kenneth Reitz',
     author_email='me@kennethreitz.com',
     url='https://github.com/kennethreitz/omnijson',
-    packages= [
+    packages=[
         'omnijson',
         'omnijson.packages',
         'omnijson.packages.simplejson'
