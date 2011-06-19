@@ -17,7 +17,6 @@ class OmniSuite(unittest.TestCase):
         a = json.loads(self._good_json_string)
         self.assertEqual(a, self._good_json_result)
 
-
     def test_dump_json(self):
         a = json.dumps(self._good_json_result)
         self.assertEqual(a, self._good_json_string)
