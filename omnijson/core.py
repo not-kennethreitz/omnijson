@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from .packages import simplejson as internal_json
-from .packages.simplejson.ordered_dict import OrderedDict
-
-engine = None
+engine  = None
 _engine = None
 
-
-_json_map = OrderedDict()
-
-_json_map['ujson'] = ['loads', 'dumps', ValueError]
-_json_map['yajl'] = ['loads', 'dumps', (TypeError, ValueError)]
-_json_map['jsonlib2'] = ['read', 'write', ValueError]
-_json_map['jsonlib'] = ['read', 'write', ValueError]
-_json_map['simplejson'] = ['loads', 'dumps', (TypeError, ValueError)]
-_json_map['json'] = ['loads', 'dumps', (TypeError, ValueError)]
-_json_map['simplejson_from_packages'] = ['loads', 'dumps', ValueError]
-
+options = [
+    ['ujson', 'loads', 'dumps', ValueError],
+    ['yajl', 'loads', 'dumps', (TypeError, ValueError)],
+    ['jsonlib2', 'read', 'write', ValueError],
+    ['jsonlib', 'read', 'write', ValueError],
+    ['simplejson',\/// 'loads', 'dumps', (TypeError, ValueError)],
+    ['json', 'loads', 'dumps', (TypeError, ValueError)],
+    ['simplejson_from_packages', 'loads', 'dumps', ValueError],
+]
 
 def _import(engine):
     try:
@@ -40,7 +35,7 @@ def loads(s):
         except TypeError:
             return _engine[0](s)
 
-    except _engine[2], why:
+    except _engine[2] as why:
         raise JSONError(why)
 
 
@@ -54,7 +49,7 @@ def dumps(o, **kwargs):
         except TypeError:
             return _engine[1](o)
 
-    except _engine[2], why:
+    except _engine[2] as why:
         raise JSONError(why)
 
 
@@ -63,12 +58,12 @@ class JSONError(ValueError):
     """JSON Failed."""
 
 
-for k, v in _json_map.items():
+for e in options:
 
-    __engine = _import(k)
+    __engine = _import(e[0])
 
     if __engine:
-        engine, _engine = k, v
+        engine, _engine = e[0], e[1:4]
 
         for i in (0, 1):
             _engine[i] = getattr(__engine, _engine[i])
