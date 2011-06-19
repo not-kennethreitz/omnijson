@@ -8,6 +8,6 @@ from .core import loads, dumps, JSONError
 __all__ = ('loads', 'dumps', 'JSONError')
 
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __author__ = 'Kenneth Reitz'
 __license__ = 'MIT'
