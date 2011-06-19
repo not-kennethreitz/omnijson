@@ -30,6 +30,7 @@ Features
 - Falls back on built in pure-python simplejson, just in case.
 - Proper API (``loads()``, ``dumps()``)
 - Verndorizable
+- Supports Python 2.5-3.2 out of the box
 
 
 Usage
