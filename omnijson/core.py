@@ -44,16 +44,11 @@ def loads(s, **kwargs):
     try:
         return _engine[0](s)
 
-    except:
-        # crazy 2/3 exception hack
-        # http://www.voidspace.org.uk/python/weblog/arch_d7_2010_03_20.shtml
-
-        ExceptionClass, why = sys.exc_info()[:2]
-
-        if any([(issubclass(ExceptionClass, e)) for e in _engine[2]]):
-            raise JSONError(why)
-        else:
-            raise why
+    except _engine[2]:
+        # except_clause: 'except' [test ['as' NAME]]  # grammar for py3x
+        # except_clause: 'except' [test [('as' | ',') test]] # grammar for py2x
+        why = sys.exc_info()[1]
+        raise JSONError(why)
 
 
 def dumps(o, **kwargs):
