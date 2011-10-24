@@ -67,7 +67,7 @@ Of, if you must::
     $ easy_install omnijson
 
 But, you `really shouldn't do that
-<http://www.pip-installer.org/en/latest/index.html#pip-compared-to-easy-install>`_.
+<http://www.pip-installer.org/en/latest/other-tools.html#pip-compared-to-easy-install>`_.
 
 
 License
