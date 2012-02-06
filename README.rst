@@ -50,9 +50,10 @@ Load some objects::
     >>> json.dumps({'yo': 'dawg'})
     '{"yo": "dawg"}'
 
-Check JSON Engine::
+Check JSON 
+::
 
-    >>> json.engine
+    >>> json.core.engine
     'ujson'
 
 Install
