@@ -42,7 +42,7 @@ def loads(s, **kwargs):
     """Loads JSON object."""
 
     try:
-        return _engine[0](s)
+        return _engine[0](s, **kwargs)
 
     except _engine[2]:
         # except_clause: 'except' [test ['as' NAME]]  # grammar for py3x
@@ -55,7 +55,7 @@ def dumps(o, **kwargs):
     """Dumps JSON object."""
 
     try:
-        return _engine[1](o)
+        return _engine[1](o, **kwargs)
 
     except:
         ExceptionClass, why = sys.exc_info()[:2]
